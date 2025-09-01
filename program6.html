@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="inputValue" cols="30" rows="20"></textarea>
+    <button onclick="todolist()">addTask</button>
+    <ul id="listContent"></ul>
+</body>
+    <script>
+        function todolist(){
+            let textValue=document.getElementById("inputValue").value.trim();
+            if(textValue==="")return;
+            let li=document.createElement("li");
+            li.textContent=textValue;
+            document.getElementById("listContent").appendChild(li);
+            let removeBtn=document.createElement("button");
+            removeBtn.textContent="remove";
+            li.appendChild(removeBtn);
+        }
+    </script>
+</html>
