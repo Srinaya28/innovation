@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StopWatch</title>
+</head>
+<body>
+    <h2>Stopwatch</h2>
+    <p id="Display">00:00</p>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+    <script>
+        let seconds=0;
+        let intervalId=null;
+        function updatedisplay(){
+            const mins=String(Math.floor(seconds/60)).padStart(2,"0");
+            const secs=String(seconds % 60).padStart(2,"0");
+            document.getElementById("Display").innerText=`${mins}:${secs}`;
+        }
+        function start(){
+           if(!intervalId){
+            intervalId=setInterval(()=>{
+                seconds++;
+                updatedisplay();
+              },1000);
+            }
+          }
+        function stop(){
+            clearInterval(intervalId);
+            intervalId=null;
+        }
+        function reset(){
+            stop();
+            seconds=0;
+            updatedisplay();
+        }
+    </script>
+</body>
+</html>
