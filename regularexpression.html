@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Quantifiers specficy how many times a character or group should appear.
+        let  text="aaaba";
+        let pattern=/\a*/g;
+        let pattern2=/\a+/g;
+        let pattern3=/\a?/g;
+        let result=text.match(pattern);
+        let result2=text.match(pattern2);
+        let result3=text.match(pattern3);
+        console.log(result);
+        console.log(result2);
+        console.log(result3);
+        //Modifiers (flags) change how regex matches.
+        let sentence="Hai Hello\nHai,I'm Fine";
+        let pattern4=/\hai+/igm;
+        let result4=sentence.match(pattern4);
+        console.log(result4);
+        //Meta characters have special meaning in regex.
+        let digitchar="Js001java";
+        let pattern5=/\d+\w+/ig;
+        let result5=digirchar.match(pattern5);
+        console.log(result5);
+        // parentheses() are used to group pattern and capture submatches.
+        let username="javascript program";
+        let pattern6=/(\w+)/g;
+        let result6=username.match(pattern6);
+        console.log(result6);
+        console.log(result6[0]);
+        console.log(result6[1])
+        /*common regex methods in javaScript:
+         test()-> returns true/false
+         exec()->returns matched result  with groups
+         match()-> returns array of matches.
+         replace()->replaces matches.
+         split()->split the  matches.*/
+         let lines="apple banana apple grapes ";
+         let pattern7=/apple/;
+         console.log(pattern7.test(lines));
+        //true(because "apple" exists in text)
+         //eg.replace()
+
+         let str="mr bean has a green apple and a red apple ";
+         const regex=/Apple/ig;
+         let result8=str.replace(pattern8,"Strawberries");
+         console.log(result8);
+         //eg.split()
+
+        </script>
+</body>
+</html>
