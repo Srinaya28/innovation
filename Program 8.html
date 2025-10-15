@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Main Program - Full Digital Clock</title>
+ <style>
+ body {
+ background-color: #1a1a1a;
+ margin: 0;
+padding: 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ font-family: 'Courier New', Courier, monospace;
+ }
+ #clock {
+ font-size: 60px;
+ color: #00ffcc;
+ padding: 20px 40px;
+ border: 2px solid #00ffcc;
+ border-radius: 10px;
+ box-shadow: 0px 0px 20px #00ffcc;
+ background-color: #222;
+ }
+ </style>
+</head>
+<body>
+ <div id="clock">Loading...</div>
+ <script>
+ function updateClock() {
+ const now = new Date();
+ let hours = now.getHours();
+ let minutes = now.getMinutes();
+ let seconds = now.getSeconds();
+ const ampm = hours >= 12 ? 'PM' : 'AM';
+ hours = hours % 12;
+ hours = hours ? hours : 12; // hour '0' should be '12'
+ const hh = String(hours).padStart(2, '0');
+ const mm = String(minutes).padStart(2, '0');
+ const ss = String(seconds).padStart(2, '0');
+ const timeString = `${hh}:${mm}:${ss} ${ampm}`;
+ document.getElementById("clock").textContent = timeString;
+ }
+ updateClock(); // Initial call
+ setInterval(updateClock, 1000); // Update every second
+ </script>
+</body>
+</html>
